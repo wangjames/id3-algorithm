@@ -1,0 +1,15 @@
+play outlook temp humidity windy
+n s h h f
+n s h h t
+y o h h f
+y r m h f
+y r c n f
+n r c n t
+y o c n t
+n s m h f
+y s c n f
+y r m n f
+y s m n t
+y o m h t
+y o h n f
+n r m h t
