@@ -1,10 +1,4 @@
-# id3alg
 
-algorithm creates decision tree from training data
+This application was created to replicate the supervised learning ID3 algorithm detailed in the classic paper Induction of Decision Trees. The main feature of the decision tree is that it is able to process past data sets using entropy calculations to make judgments about the qualities of incoming unknown data sets. For example, one possible application of a decision tree is to determine whether or not a part of an image is land or forest. It is then ideal to have an application that given any image of a surface area will be able to determine if it is land or forest. The decision tree can serve as this application after being trained on a training set of images of lands and forests. After viewing enough images, it'll be able to ascertain if a certain collection of pixels with a certain intensity will be land or image based off what it has seen in the past.
 
-sampletest.txt is the simple test file that proves a correct decision
-tree is being made
-
-simple_big_mushroom.zip contains the file that has file with 7 million
-instances. program is currently capable of uploading the instances but
-work still needs to be done to enable processing all of the instances.
+This version of the algorithm is a simplified version that processes data sets of descriptions rather than images.
