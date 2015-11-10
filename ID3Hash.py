@@ -1,7 +1,11 @@
 import math
 
 class Node(object):
-
+	
+	## class for the node of the ID3 classifier tree
+	## every node will contain a set of instances that is associated with the node
+	## every node will contain the attribute it was split with and the value as well
+	## every node will have the list of attributes that it still has not split on
 	def __init__(self):
 		self.iteration_index = []
 		self.children_nodes = []
@@ -9,7 +13,7 @@ class Node(object):
 		self.node_attribute = ""
 		self.node_value = ""
 
-	
+	## sets all of the above values given the appropriate parameters
 	def set_iteration_index(self, index_list):
 		self.iteration_index = index_list
 
@@ -50,13 +54,6 @@ class ID3Instance(object):
 		self.root = Node()
 		self.class_index = 0
 		self.class_values = []
-
-	# def generateCounts(attribute_check_list, instances):
-	# 	count_list = []
-	# 	for number in range(len(attribute_check_list)):
-	# 		count_list.append([])
-	# 	for key in instances:
-	# 		if (key[0] == 1):
 
 	def calculate_entropy(self, instances):
 		
@@ -105,7 +102,7 @@ class ID3Instance(object):
 		return -result_entropy
 
 	def get_subset(self, attribute_index, attribute_value_index, instances):
-		
+		## returns subset from total instances that possess a certain attribute value
 		result_dict = {}
 
 		for key in instances:
@@ -116,6 +113,7 @@ class ID3Instance(object):
 
 
 	def return_count(self, instance_dict):
+		## retrieves the count of the given dictionary
 		count = 0
 
 		for element in instance_dict:
@@ -280,6 +278,9 @@ class ID3Instance(object):
 		return count_list.index(bigger_count)
 
 	def print_tree(self, node, space):
+		
+		## retrieves the children for the input node
+		## retrieves the accompanying values for that node
 		child_list = node.get_children_nodes()
 
 		node_instances = node.get_instances()
@@ -287,11 +288,13 @@ class ID3Instance(object):
 		node_value = node.get_node_value()
 		node_attribute = node.get_node_attribute()
 		node_class_value = self.get_class_index(node_instances)
-
+		
+		## prints out the node
 		print "Node's attribute is " + node_attribute
 		print "Node's value is " + node_value
 		print "Node's class value is " + self.attribute_values[self.class_index][node_class_value]
-
+		
+		## recursively calls children nodes to print them out
 		if (len(child_list) != 0):
 			print "This node has the following children."
 			space += "       "
